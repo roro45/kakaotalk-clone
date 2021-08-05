@@ -1,0 +1,378 @@
++노마드 코더 카카오톡 클론 코딩 
+
+ 2021. 08. 03 (#1.5 ~ 
+
+#1.5
+ 웹 페이지 뜯어보기 / View(보기)-Developer(개발자 정보)-View Source(소스 보기)
+ korea times <> Netflix : 하지만 둘 다 전부 text일 뿐.
+ 웹사이트 = 단지 text일 뿐
+ 내가 웹사이트(text)를 만들 때, 사실 내가 웹사이트를 만드는 것은 아니다.
+ 나를 위해서 브라우저가 웹 사이트를 만들어 주는 것임. 브라우저는 내가 쓴 코드를 이해함. 나의 코드를 생생하게 구현하는 것.  
+-> 개발자로서 우리는 어떤 종류의 text를 써야하고, text를 어디에 써야하는지를 배우는 것.
+
+#1.6
+ 웹사이트는 2개 혹은 3개의 언어로 구성되어 있다.
+1. HTML
+2. CSS
+3. Javascript
+
+ HTML ( HyperText Markup Language ) 
+- 브라우저는 멍청하다.
+-> 때문에 브라우저에게 우리의 content를 설명해줘야 된다. (HTML로)
+
+= HTML을 브라우저에게 웹사이트의 content가 어떻게 구성되어 있는지 설명할 때 사용한다.
+ex) 설명은 무엇이고 link는 무엇이고..
+
+#1.7 CSS ( Cascading Style Sheets ) 
+
+- CSS는 HTML과 같이 사용해야 됨 (절대 따로 사용 X)
+- HTML은 브라우저에게 웹사이트의 content(내용)가 무엇인지에 대해 알려주는 것.
+- CSS는 브라우저에게 웹사이트의 그 content가 어떻게 보여야 하는지에 대해 알려준다.
+ ex) 색깔.. 크기..
+
+#1. 8 Javascript 
+- 웹사이트의 '뇌'
+- 동적 상호작용성 (interactivity) 
+- 모든 웹사이트에서 뇌가 필요한 것은 아니다.
+
+#1. 9 Recap
+- HTML은 browser에게 웹사이트에 어떤 content가 있는지를 알려준다. ex) title, link, image, paragraph..
+- CSS는 browser에게 그러한 content들이 어떻게 보여야 하는지를 알려준다. ex) color...
+- Javascript는 웹사이트를 똑똑하게 동적으로 만들어주는 것. ex) 클릭하면 뭔가 나타나게 하는 것..
+  (셋 중 javascript만 프로그래밍 언어)
+
+#2. 0 Our First HTML file
+- 파일명은 항상 소문자로 작성한다.
+- 폴더명은 항상 소문자로 작성한다.
+
+#2.1 Setup and Errors
+
+
+#2.3 More Tags and Prettier
+- ul, ol, li
+- 태그를 안닫거나 하는 실수를 할 때, 저장할때마다 수정을 도와주는 extension : Prettier 설치
+- extension : WakaTime : 내가 오늘 사용한 프로그램 언어? 빈도를 시각화해주는 extension
+
+#2.4 Tag Attributes
+- <a href ~~~ >에서 a는 anchor(닻)를 의미 = 다른 웹페이지로의 이동 = 링크가 됨
+- attributes(속성) : tag에 추가하는 부가적인 정보 // href
+- href : "HTTP reference" 혹은 "hyperlink reference"
+- attributes를 마음대로 작성해도 웹 페이지에서는 문제가 없다. 하지만 브라우저가 이해하지 못할 뿐이기 때문에 뭐가 나오진 않음.
+- href 속성(attributes)은 <a> (anchor) 태그(tag)에서 추가하는 것만이 의미를 가진다.
+ ex) <a  href="http://www.google.com" target="_self">Go to google.com</a> 
+- target의 기본값(Default)은 _self << anchor 태그를 클릭 시 그 웹페이지에서 구글 홈페이지로 이동함.
+<> target="_blank"로 변경 시, 새로운 탭이 열리면서 구글 홈페이지로 이동함.
+- img 태그는 다른 것들이랑과는 다르게 /로 닫아주는 태그가 없다.
+ex) <img></img> X  .   = img태그는 "self-closing tag"(자체 닫기 태그)이기 때문에 img 사이에 content가 없다. img태그는 text가 아닌 이미지라서.
+- 마찬가지로 img 태그에만 한정되는 attributes가 있는데 src가 바로 그것.
+ex) <img src="이미지 주소"/> 
+
+#2.5 More Tags and Head
+- img파일의 경우(내 컴퓨터에 내재되어 있는) 같은 폴더 안에 넣어놓아야 하고, 만약 폴더가 하나 더 있을 시 경로표기를 해야한다.
+ex) img/logo.png  >> img폴더 안에 있는 logo.png 파일
+-head 태그에 속해 있는 모든 태그들은 보여지지 않는다.
+= 브라우저가 이해하는 실존 동작 되는 html 코드(head 태그 속에 있는)들은 안보여진다는 것.
+= 브라우저 화면 상에 보여질 내용들은 전부 body 태그에 있어야 한다.
+
+#2.6 its All About the Head
+-meta 태그의 meta는 부가적인 정보라는 뜻
+-content, name의 두 가지 attribute를 갖고 있음.
+-<meta charset /> : 브라우저에게 text를 어떻게 그려달라는지 말해줌 << 매우 중요
+-meta 태그들은 img 태그와 마찬가지로 self-closing태그
+-<html lang=""> language라는 attributes로 구글,네이버,bing과 같은 검색엔진들에 도움을 주기 위해 사용 : 우리 사이트에서 사용되는 언어가 무엇인지 말해줌.
+- 최대한 명확하게 우리의 웹사이트를 브라우저에게 알려주는 일련의 행위
+- <meta content="Watch Netflix~~~~~." name="description"> <<< 이 중 제일 중요한 태그
+ = google이 검색할 때 찾는 태그이기 때문에.
+- title도 구글이 검색에 중요한 비중을 가지고 있다.
+#2.7 More Tags
+-head 태그는 보이지않는 태그들로 사이트 설정을 해 주는것.
+-og:image 태그 : 내가 사이트를 카카오톡에 공유할 때 보여지는 이미지
+-> 카카오톡은 우선 og:title이라는 태그를 찾고 -> description을 찾고 -> og:image를 찾음 / 10:20~10:40
+- 구글에 html, css, javascript를 검색할 때 mdn를 덧붙이는 걸 추천. 
+- 검색 시 mozilla.org 사이트가 나옴 : firefox 브라우저를 만드는 회사가 제공하는 사이트로 한국어 번역 가능. <<애용
+
+<>w3 schools << 사이트 비추
+#2.8 Form Tags
+<form> 태그 -> <input> ... (제일중요한 태그)
+-<input>태그는 하나 혹은 여러개의 type을 가질 수 있음.
+-placeholder는 input이 가지는 또 다른 attribute 
+ex) <input placeholder="Name" type="text" /> 
+     <input placeholder="Last Name" type="text" />
+-required, minlength..자주 쓰일듯..
+-type="file"일 때, 특정 유형들만 선택하게끔 함 = accept(attribute)
+-모든 태그를 기억할 필요는 없다. 어떻게 쓰는지, 검색하는 방법만 기억하면 된다.
+#2.9 More Tags and IDs
+-<label> 태그는 <input>태그와 동일해야 작동이 된다.
+-<label> 태그는 ="for"이라는 attribute를 사용한다.
+-<input> 태그는 ="id"라는 attribute를 사용한다.
+-="for"과 ="id"에 들어가는 값은 동일해야 한다.
+-위치가 다른 곳을 한번에 수정하고 싶다면 alt + 마우스 왼쪽클릭
+-email, url.. 다양한 type드이 있다.
+-id 태그는 body 안에 어떤 태그에든 넣을 수 있는 attribute.
+ = id는 unique identifier(고유식별자)이기 때문에
+-element당 하나의 id만 가질 수 있는 게 id의 규칙이다. =(태그는 하나의 id값을 고유하게 가진다.)
+#2.10 Semantic HTML
+- Semantic HTML(document와 code를 명확하게 할 수 있도록 짜는게 좋다=code를 보는 동료들도 이해하기 쉽게끔)
+- div tag = division (박스) 아무런 값이 없는 단순한 box
+- headr tag = div 대체 태그 (head와 헷갈리지 않기. head는 보이지 않지만 header는 보인다.)
+- main tag = 내용을 의미하는 태그
+- footer tag = 꼬릿말을 의미하는 태그
+- span tag = 짧은 텍스트를 의미하는 태그
+#2.11 Recap
+- visul studio code는 코드 작성이 잘못되면 빨간색으로 나타내준다.
+- attribute 값은 항상 "" 큰 따옴표 안에 작성한다.
+- 어떤 태그는 id라는 attribute를 가질 수 있다. ex) image, paragraph, header, link..
+- 반대로 src(source)라는 attribute는 모든 태그가 가질 수 있는 건 아니다.
+- 코드 자체에 의미가 부여된 semantic 태그를 잊지 말자. ex) header, main, footer, navigation..
+- semantic 태그로 코드를 작성하면 더 이해하기 쉽고 간결하기 때문에 좋은 프로그래머가 되는 길이다.
+- header, main, footer, navigation, hgroup(h1, h2, h3..) 등의 태그들은 전부 container이다. 전부 div 태그로 대체 가능함
+- div 태그는 가장 통용적인 container이다. 하지만 코드만 보고 어떤 의미인지 보다 쉽게 파악하기 위해 semantic 태그를 쓰는 것.
+- 모든 태그를 암기할 필요는 없으며, 필요할 때마다 문서를 찾아 적용하면 된다.
+++ 니꼬가 자주 쓰는 태그는 header, main, footer, navigation, sidebar/aside이다.
+
+========================================================
+========================================================
+
+#3 LEARNING CSS
+- CSS와 HTML을 연결하는 방법
+1. 같은 HTML 파일에 HTML, CSS 코드를 놓는 방법
+head tag 안에 style tag를 작성한다.
+2. CSS와 HTML을 분리시키는 방법 ( 추천 )
+link tag를 이용해 style.css와 연결하고 rel을 이용해 관계를 적어준다.
+ex) <link href="styles.css" rel ="stylesheet" />
+#3.0 How to Add CSS to HTML
+#3.1 Writing our Fist CSS Lines
+- CSS가 하는 일은 HTML 태그를 가리키는 일. ex) 이 태그는 초록색이다. 이 가리키는 것 자체를 'selector;
+- CSS 작성에선 띄어쓰기를 하지 않는다. ex) font-size (o) font size (x)
+- font-size: 20px; 과 같이 속성 다음 콜론(:), 값 다음엔 세미콜론(;)으로 닫아줘야 한다.
+- 속성이름: 속성값;
+- 언더바( _ ) 또는 슬래쉬( / )도 사용해선 안된다.
+- css 또한 어떤 값이든 쓸 수 있다. 하지만 속성에 맞는 값을 써야 브라우저에게 적용이 된다.
+- css 또한 다 외울 필요는 없고, 기본적으로 어떻게 동작하는지 원리만 기억하면 됨.
+* 동작 원리
+ 1. 태그를 지정.
+ 2. 원하는 속성값을 쓴다.
+#3.2 What Does Cascading Mean
+- 브라우저가 CSS를 읽을 때 위에서부터 순서대로 읽는다.
+1. inline CSS :  CSS를 직접 적는 것
+2. external CSS : CSS파일을 include 하는 것
+- 만약 같은 seletor를 가리키는 CSS가 여러개라면, 가장 마지막 스타일이 적용된다.
+#3.3 Blocks and Inlines
+- div는 옆에 다른 div가 오지 않는다.
+- span은 옆에 다른 span이 올 수있다.
+- link는 옆에 올 수 있다.
+- p는 옆에 올 수 없다.
+- block : 옆에 다른 요소가 오지 못함 
+- inline : 옆에 다른 요소가 올 수 있음 (in the same line)
+ ex) span, link, img
+#3.4 Margin Part One
+- block의 특징
+- inline block 서로 바꿀 수 있다. (display 속성)
+- inline은 높이(height)와 너비(width)를 가질 수 없다.
+- block은 높이와 너비가 있다.
+- block의 특징 :  margin, padding, border
+- 브라우저는 기본적으로 style 속성을 준다. ex) div의 기본 margin이 8px 이라는 점
+- margin : 경계의 바깥에 있는 공간 (border보다 바깥)
++++
+margin-top: a;
+margin-right: b;
+margin-bottom: c;
+margin-left: d;
+를 합쳐서
+margin a b c d; 해도 순서대로 적용이 가능.
+상하, 좌우, 혹은 상, 좌우, 하 등 여러가지 방식이 더 존재하는데, MDN 참조하면 될듯
+https://developer.mozilla.org/en-US/docs/Web/CSS/margin
+#3.5 Margin Part Two
+- 방향 설정 없이 margin 하나를 주면 사방에 모두 다 적용된다. ex) margin: 15px 
+- 두개를 줄 경우 상하, 좌우 이다. ex) margin: 3px 15px; 
+- Collapsing margin 현상 (상하에서만 발생한다)
+- body안에 있는 div의 위 아래 마진이 body의 마진과 만나면 (경계선이 닿는다면) 둘 중 큰 값의 마진으로 body에 적용된다.
+= 경계가 닿아서 margin이 같아졌구나!
+#3.6 Paddings and IDs
+- padding <> margin ( 서로 반대 개념)
+- padding : 경계로부터 안쪽에 있는 공간
+- 값의 갯수에 따라 적용되는 방향은 margin과 동일
+- 여러 div를 생성했을 때 "id"를 이용하여 div들을 구분할 수 있고, 각각 다른 속성을 적용시킬 수 있다.(id)
+- 특정 id의 값을 지칭하려면 #id를 이용해 접근한다. 
+ex) #first {
+	padding : 15px;
+	}
+- 한 요소는 하나의 id만을 가질 수 있다.
+- CSS코드의 id명은 HTML 코드에서 썼던 id명과 동일해야 한다.
+#3.7 Border
+- border는 box의 경계선을 의미.
+- *는 전체를 뜻한다.
+ex) * {} << 전체
+- border : 굵기, 스타일, 색상 순
+ex) border {
+	15px solid black;
+}
+
+#3.8 Classes
+- span은 inline이기 때문에 높이와 너비를 가질 수 없으며, 그래서 위 아래에 margin을 가질 수 없다.
+- 하지만 padding은 사방에 가질 수 있다.
+- 이와 같은 상황에 margin을 위, 아래에 적용하고 싶다면, inline 요소를 block으로 바꿔주면 됨.(inline이기 때문에 안되는 것이기에)
+ex) display: inline; >> display: block;
+- 온점(.)은 class명이라는 뜻.
+ex) .tomato (class) <> #tomato (Id)
+- id와 다르게 class는 유일할 필요가 없다. 여러 요소들을 같이 쓸 수 있음.
+ex) <span calss="btn tomato">hello</span> (btn, tomato라는 두 개의 class 사용)
+#3.9 Inline Block
+- block은 옆에 아무것도 올 수 없음.
+- inline: height, width 둘 다 무시되어 무언가 추가하지 않는 이상 아무것도 안보임.
+- inline-block : 위 문제를 해결할 순 있지만, 반응형 디자인 지원이 되지않아 각 기기마다 만족하는 최적값을 일일히 찾아야 함.
+(사람마다 쓰는 기종의 모니터 크기에 따라 보이는 형태가 다를 수 있다...)
+-> 이 문제를 해결할 수 있는 것이 flex
+#3.10 Flexbox Part One
+- inline block의 문제점을 해결하기 위해 flex<<를 생각해냈다.
+- flexbox 사용 규칙
+1. 자식 엘리먼트에는 어떠한 것도 적지 말아야 한다.
+ - 자식 엘리먼트를 움직이게 하려면 부모 엘리먼트를 flex container로 만들어야 한다.
+2. main axis=> 주축은 수평이 기본, justify-content는 main axis를 따라 움직인다.
+3. cross axis=> 교차축은 수직이 기본, align-items는 cross axis를 따라 움직인다.
+4. body가 height 값을 갖고 있지 않으면 이미 맨 위아래를 차지하고 중심에 있으니, align-items를 설정하더라도 바뀌지 않음
+= 이미 중심에 있기 때문에.
+이 때, height를 px로 해도 작동하지만, vh를 사용하면 화면 크기에 따라 바뀌기 때문에 좋다.
+이는 아이폰, 맥북, 아이패드 등 각 기종에 따라 알맞게 달라지기 때문에 유용함.
+#3.11 Flexbox Part Two
+- justify-content나 align-items의 default를 변경하기 위해선, 'flex-direction'을 수정하면 된다.
+- flex-direction에는 두 가지 속성, row와 column이 있다.
+- display를 flex로 했을 때, default는 row. 따라서 flex-direction: column;을 주면 주축과 교차축이 반전된다.
+- 원하는만큼 flex 부모-자식 엘리먼트를 만들어낼 수 있다.
+- flex-wrap: nowrap;을 통해 wrapping이 일어나지 않게 할 수 있다.
+- flexbox는 width값을 초기 사이즈로만 여기고, 모든 엘리먼트를 같은 줄에 있게 하기 위해 width를 바꾸기도 한다.
+- flex-direction: column-reverse; 교차축을 기준으로 시작점이 반대이다.
+- flex-wrap: wrap-reverse; 또한 있는데, 브라우저를 줄일 때, 엘리먼트가 겹쳐지는 위치가 역순으로 바뀐다.
+++ reverse말 그대로 역순으로 바뀐다고 생각하면 됨.
+#3.12 Fixed
+- position fixed를 이용하면 스크롤해도 항상 제자리에 머무른다.
+- 처음 만들어진 자리에 고정 되어있다. 하지만 top, right, bottom, left 중 하나만 수정해도 서로 다른 레이어에 위치하게 되기 때문에 원래 위치가 무시된다.
+- position fixed를 이용하면 가장 위에 위치하게 된다. (맨 앞)
+#3.13 Relative Absolute
+1. position: static (default)
+2. position: fixed;
+ - 엘리먼트가 처음 생성된 자리에 고정.
+3. position: relative;
+- 엘리먼트가 '처음 생선된 위치'를 기준점으로, top bottom left right로 위치를 조금씩 수정할 수 있다.
+4. position: absolute;
+- 가장 가까운 relative 부모를 기준점으로 삼고 이동.
+부모에 position: relative를 해주면 정상적으로 그 부모를 기준점으로 이동하지만, relative한 부모가 없을 시 body를 기준으로 삼는다.
+#3.14 Pseudo Selectors part One
+- pseudo selector : 좀더 세부적으로 엘리먼틀르 선택해 주는 것.
+ (기존 방법 : 태그, id w/#, class w/.)
+- 선택한 복잡한 과정을 pseudo selector로 가능함
+ex) div:first-child {
+background-color: tomato;
+}
+
+/* pseudo selector */
+div:last-child {
+background-color: teal;
+}
+
+id나 class를 따로 만드는것 보다 이렇게 지정하는 것이 훨씬 좋은 방법.
+HTML코드를 고칠 필요 없이 CSS에서만 선택을 하면 되니까.
+
+n번째 태그 수정하기 nth-child(n)
+span:nth-child(2) {
+background-color: teal;
+}
+span:nth-child(even) { //or odd(홀수) }
+background-color: teal;
+}
+
+even은 짝수이며 위와 같이 코드 실행 시 짝수에 해당하는 span의 background-color가 teal이 된다.
+
+++ span:nth-child(5n+1) {
+...
+}
+n을 사용하는 등 응용 가능.
+
+++ Live Server 사용한 상태에서 last-child 지정이 안되는 이유?
+- Live Server가 Body 태그 안쪽 맨 아래에 보이지 않는 스크립트 태그( 또는 어떠한 것)를 만들기 때문에 더이상 div가 last-child가 아니다.
+#3.15 Combinators
+div의 바로 밑 자식에 있는 span을 찾아서 그것만 효과를 주는 방법
+
+1) div span{
+text-decoration : underline;
+}
+ 이렇게 하면 div 밑에 있는 모든 span이 효과를 가진다.
+ 직접적인 부모가 아니어도 밑에 있는 것들은 모두 css가 찾는다.
+2) div > span {
+text-decoration : underline;
+}
+ 이렇게 하면 div의 자식에 해당하는 span만 건드릴 수 있게 된다.
+++ 형제에게 효과를 주는 방법
+P + span {
+color: black;
+}
+ +를 사용하면 동등한 위치한 형제에게 영향을 끼칠 수 있다.
+- > 를 사용하면 direct child를 찾고, +를 사용하면 바로 코드상 밑에 있는 sibling(형제)를 찾게 된다.
+#3.16 Pseudo Selectors part Two
+#3.17 States
+#3.18 Recap
+#3.19 Colors and Variables
+
+#4. ADVANCED CSS
+#4.0 Transitions
+#4.1 Transitions part Two
+#4.2 Transformations 
+#4.3 Animations part One
+#4.4 Animations part Two
+#4.5 Media Queries
+#4.6 Media Queries Recap
+
+#5. GIT AND GITHUB
+#5.0 What is Git
+#5.1 What is Github
+#5.2 Creating a Github Repository
+#5.3 Making Our Frist Commits
+
+#6 CLONING TIME
+#6.0 Introduction
+#6.1 Sign up Screen part One
+#6.2 BEM
+#6.3 Font Awesome
+#6.4 Sign Up Screen part Two
+#6.5 Status Bar CSS
+#6.6 Sign Up Screen part Three
+#6.7 Log In Form part One
+#6.8 Log In Form part Two
+#6.9 Recap and Forms
+#6.10 Navigation Bar part One
+#6.11 Navigation Bar part Two
+#6.12 Border Box
+#6.13 Navigation Bar part Three
+#6.14 Screen Header
+#6.15 Friends Screen part One
+#6.16 User Componet part One
+#6.17 User Componet part Two
+#6.18 Finising Friends Screen
+#6.19 Chats Screen part One
+#6.20 Chats Screen part Two
+#6.21 Find Screen Part One
+#6.22 Find Screen Part Two
+#6.23 Find Screen Part Three
+#6.24 Find Screen Part four
+#6.25 More Screen part One
+#6.26 More Screen part Two
+#6.27 Settings Screen part One
+#6.28 Settings and Chat Screen part One
+#6.29 Chat Screen part Two
+#6.30 Chat Screen part Three
+#6.31 Chat Screen part Four
+#6.32 Chat Screen part Five
+#6.33 Write Message Input
+#6.34 Splash Screen part One
+#6.35 Splash Screen part Two
+#6.36 Navigation Animation
+#6.37 More Animations
+#6.38 Anmating Chats Screen
+#6.39 Recap
+#6.40 No Mobile Media Query
+
+#7 PUBLISHING OUR WEBSITE
+#7.0 Branches on Git
+#7.1 Publishing on Github Pages
+#7.2 Updationg Github Pages
+#7.3 Conclustions
