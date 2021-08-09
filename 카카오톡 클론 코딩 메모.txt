@@ -180,7 +180,7 @@ margin-bottom: c;
 margin-left: d;
 를 합쳐서
 margin a b c d; 해도 순서대로 적용이 가능.
-상하, 좌우, 혹은 상, 좌우, 하 등 여러가지 방식이 더 존재하는데, MDN 참조하면 될듯
+상하, 좌우, 혹은 상, 좌우, 하 등 여러가지 방식이 더 존재하는데, MDN 참조하면 될듯 (검색)
 https://developer.mozilla.org/en-US/docs/Web/CSS/margin
 #3.5 Margin Part Two
 - 방향 설정 없이 margin 하나를 주면 사방에 모두 다 적용된다. ex) margin: 15px 
@@ -193,7 +193,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/margin
 - padding : 경계로부터 안쪽에 있는 공간
 - 값의 갯수에 따라 적용되는 방향은 margin과 동일
 - 여러 div를 생성했을 때 "id"를 이용하여 div들을 구분할 수 있고, 각각 다른 속성을 적용시킬 수 있다.(id)
-- 특정 id의 값을 지칭하려면 #id를 이용해 접근한다. 
+- 특정 id의 값을 지칭하려면 #id를 이용해 접r근한다. 
 ex) #first {
 	padding : 15px;
 	}
@@ -258,7 +258,7 @@ ex) <span calss="btn tomato">hello</span> (btn, tomato라는 두 개의 class �
 - 가장 가까운 relative 부모를 기준점으로 삼고 이동.
 부모에 position: relative를 해주면 정상적으로 그 부모를 기준점으로 이동하지만, relative한 부모가 없을 시 body를 기준으로 삼는다.
 #3.14 Pseudo Selectors part One
-- pseudo selector : 좀더 세부적으로 엘리먼틀르 선택해 주는 것.
+- pseudo selector : 좀더 세부적으로 엘리먼트를 선택해 주는 것.
  (기존 방법 : 태그, id w/#, class w/.)
 - 선택한 복잡한 과정을 pseudo selector로 가능함
 ex) div:first-child {
@@ -308,18 +308,156 @@ color: black;
 }
  +를 사용하면 동등한 위치한 형제에게 영향을 끼칠 수 있다.
 - > 를 사용하면 direct child를 찾고, +를 사용하면 바로 코드상 밑에 있는 sibling(형제)를 찾게 된다.
-#3.16 Pseudo Selectors part Two
+#3.16 Pseudo Selectors part Two * 21.08.09 시작
+- *= is 'contains'
+- ~= is 'exactly'
+*="hello" 라고 할 시, ㅁㄴㄴㅁㅇㅇㅇhelloㅁㅇㄴㅁㅇㅁㅇ라고 줘도 선택됨
+~="hello" 라고 할 시 앞뒤에 공백이 있는 있는 상태에서 hello인 경우만 선택됨
+- ~를 사용해 바로 뒤에 오는 형제관계가 아닌 tag에도 스타일을 적용시킬 수 있다.
 #3.17 States
+- Active, hober, focus, focus-within, visited
+- active : 해당 요소를 마우스로 클릭했을 때 효과를 적용
+- hover : 마우스가 해당 요소 위를 지나갈 때 효과를 적용
+- focus : 키보드로 선택되었을때 효과를 적용
+- focus-within 보무 요소에게 적용. 자신의 자식 요소 중 하나가 focused 되었을 때 효과를 적용
+- visited : 방문한 사이트일 경우에 효과를 적용
+- 조건을 나열해 여러 상황을 설정할 수 있음.( 다른 엘리먼트와 연계 가능)
+ex) high-tag:hover low-tag:focus{
+}
+인 경우, 상위 요소 위에 마우스 커서가 있고, 하위 요소가 focused 되었을 때 효과를 적용하게 된다.(and의 개념)
+ex) form:hover input{
+background-color: tomato;
+}
+= form이 hover일 경우 input의 백그라운드 컬러가 바뀜.
+부모의 state에 따라 자식의 state를 조정할 수 있음.
 #3.18 Recap
+- 처음부터 다 기억할 필요는 없고, 연습하면서 기억할 수 있을 거임
+
+앞에서 잠깐 나온 pseudo element들은 :(콜론)이 2개인 게 특징.
+1) ::placeholder : placeholder의 특성만 바꾸고 싶을 때 사용
+2) ::selection : 클릭해서 긁을 때 발생
+3) ::first-letter : 첫 글자에만 적용
+4) ::first-line : 첫 줄에만 적용
+
+*복습 내용
+1) active 
+: 클릭할 때 작동 (ex 버튼 클릭 시 색깔 변함)
+
+2) hover
+: 마우스 커서를 올려놓으면 작동 (ex 글자 위에 마우스 커서 올려두면 색상이 변함)
+
+3) focus
+: element가 focused된 상태.
+
+4) visited
+: 방문한 사이트와 관련하여 일어남 (ex apple 사이트 링크 눌러서 방문했는데, 다시 보니 해당 링크 색상이 빨강색(이미 방문해서)으로 바뀌어 있음
+
+5) focus-within
+: focus되는 children이 있으면 작동. (ex 
+div:focus-within {background-color: cyan} 이면, divs의 children이 focus될 때 {}가 작동.
+
+* form: hover input:focus{} 의 경우엔 두 조건 모두 만족해야 {}안이 실행됨.
 #3.19 Colors and Variables
+- CSS에서 알아야 할 color system
+
+1) hexadecimal color
+ 16진수 컬러 (ex #00000)
+
+2) RGB 방식 ( 디자이너들이 많이 씀)
+ Red, Green, Blue (ex: rgb(252,206,0);)
+ + rgba(205,23,0,0.5);  ==> a는 알파. 투명도(opacity)를 의미 
+
+ Variabel=변수(custom properties)
+
+ 이것이 CSS를 프로그래밍 언어처럼 보여줌. 
+ 프로그래밍 언어는 아니지만, 그 장점을 보여주는 것.
+
+ :root라는 element에 변수를 추가하는 것.
+ 여기서 :root는 기본적으로 모든 document의 뿌리(출발점)가 되는 것이다.
+ 변수는 --2개 그리고 변수이름. 빈 공간이 있다면 -로 채워야 한다. 공백이 없어야 하기 때문에.
+ ex) :root {
+      --main-color: #489ee3;
+      --default-border: 1px solid var(--main-color);
+}
+
+p{
+backgorund-color: var(--main-color);
+}
 
 #4. ADVANCED CSS
 #4.0 Transitions
+ transition
+ 어떤 상태에서 다른 상태로의 변화를 보내주는 애니메이션이다.
+
+ Rule1> transition은 state가 있는 요소가 아닌, 처음 생긴 곳(root)에 있어야 한다.
+ 만약 state에 입력한다면 변화를 준 것 (ex  hover일 경우 마우스를 갖다 댄 행위)을 그만할 경우(마우스를 뗀 경우)
+ 원래 상태로 바로 돌아간다.
+ Rule2> state에 속해있는 것들만이 transition이 가능하다. 
+ ex) state에는 없는데 transition만 존재하는 요소는 작동하지 않는다.
 #4.1 Transitions part Two
+ transition은 상태에 따라 바뀌는 요소가 있을 때 사용함.
+ 상태 ex) hover, active, focus...
+ ease-in function: 브라우저에게 변화하는 방법을 알려주는 역할
+ - liner : 변화 그래프가 직선
+ - ease-in : 시작과 끝이 빠름
+ - ease-out : 시작과 끝이 느림
+ - ease-in-out : 시작이 빠르고 끝이 느림
+ - all : 변화 요소를 한번에 다룬다.
+ - 따로 다루고 싶으면 각각 써주면 된다.
+ + 소수만 다르게 하고싶을 때, 각각 다르게 안써도 all 작성 후 원하는 소수 요소들을 추가 작성해도 코딩 언어 순서대로 입력한 
+    값에 따라 소수들이 각각 다르게 작동한다고 함. 
+ ex) transition: all 0.5s, color 20s; >> 폰트 색상만 20초동안 애니메이트
 #4.2 Transformations 
+ 한 요소를 말 그대로 변형시킬 수 있기 때문에 좋음. CSS로 3D까지 표현할 수 있다.
+
+ tranformation은 box element를 변형시키지 않는다.
+ 즉, 옆에 sibling(형제)들에게 영향을 끼치지 않는다.
+ 이는 margin, padding 등이 적용되지 않는다는 것을 의미. transformation이 3D 요소로 픽셀 단위로 적용되기 때문이다.
+ 다른 요소의 box를 변형시키지 않고 원하는 요소를 이동시키기 위해서 사용하는 것이다.
+ transformation은 페이지의 픽셀의 다른 부분에서 일어난다.
+ box 차원에서 일어나지 않는다.
+ CSS의 3D는 GPU로 돌아간다. 즉, 3D작업을 할 수 있다.
+ transition과 transformation을 합친다면 아름다운 애니메이션을 만들 수 있다.
 #4.3 Animations part One
+ 애니메이션 만들기
+ @keyframes 애니메이션 이름 {
+ form {
+ }
+ to {
+ }
+ }
+ 사용하기
+ img {
+ animation : 애니메이션이름 재생시간 옵션
+}
+ ++ 무한으로 반복되게 하려면 뒤에 infinite를 붙여준다.
 #4.4 Animations part Two
+ from to 말고, 1,2,3,4,5...10 혹은 0% 25% 50% 75% 100% 같이 여러 단계로 나뉘어 애니메이션을 만들 수 있다.
+ 다른 property들도 애니메이션으로 만들 수 있다. 꼭 transform만 써야하는 것은 아니지만, transform을 쓰는 걸 권한다. 
+ 이는 일부 property가 제대로 동작하지 않는 경우도 있기 때문이다.
 #4.5 Media Queries
+ Media Queries 주요 기능들
+ min-device-width
+ max-device-width
+ orientation: landscape(가로)
+ orientation: portrait(세로)
+ ascpect-ration (레티나디스플레이 감지 가능)
+ display-mode
+ lightlevel
+ prefers-contrast
+ resolution
+ monochrome
+
+ Media type
+ @media screen{}
+ @media print{}
+
+ @media query는 코드의 조건을 추가할 수 있는 방법이다.
+ media query도 {} (중괄호)로 여닫는다.
+ -> 그 안의 element에 속성을 적용시켜야 한다.
+ media query는 "and"를 써서 연결된다.
+ -device-width는 오직 핸드폰에만 적용된다.
+ - @media print를 이용하면 브라우저 프린트 화면에서의 속성을 변경할 수 있다.
 #4.6 Media Queries Recap
 
 #5. GIT AND GITHUB
@@ -367,6 +505,7 @@ color: black;
 #6.35 Splash Screen part Two
 #6.36 Navigation Animation
 #6.37 More Animations
+
 #6.38 Anmating Chats Screen
 #6.39 Recap
 #6.40 No Mobile Media Query
