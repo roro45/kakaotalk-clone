@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Friends - Talk</title>
+    <title> Chats - Talk</title>
   </head>
   <body>
     <div class="status-bar">
@@ -24,54 +24,32 @@
     </div>
 
     <header class="screen-header">
-      <h1 class="screen-header__title">Friends</h1>
+      <h1 class="screen-header__title">Chats</h1>
       <div class="screen-header__icons">
       <span><i class="fas fa-search fa-lg"></i></span>
+      <span><i class="far fa-comment-dots fa-lg"></i></span>
       <span><i class="fas fa-music fa-lg"></i></span>
       <span><i class="fas fa-cog fa-lg"></i></span>
       </div>
     </header>
 
-    <a id="friends-display-link">
-      <i class="fas fa-info-circle"></i>
-      Friends' Names Display
-      <i class="fas fa-chevron-right fa-xs"></i>
-    </a>
 
-    <main class="friends-screen">
+    <main class="main-screen">
       <div class="user-component">
       <div class="user-component__column">
-        <img src="https://avatars.githubusercontent.com/u/79998922?v=4" 
-             class="user-component__avatar user-component__avatar--xl"/>
+        <img src="https://mblogthumb-phinf.pstatic.net/MjAyMDA3MTRfMjI5/MDAxNTk0NzI5NzcyMDMz.X2YVWOeE6fwrOSnUiARthmNM9a4mfRnneetw1hTtyHIg.1Tqwf_4qgAqc1v3jE6xbzobcrV3X6yN8JVUVwjlRGkog.JPEG.xuni1021/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EB%A1%9C%EA%B3%A0-ai-3.jpg?type=w800" 
+             class="user-component__avatar"/>
         <div class="user-component__text">
-          <h4 class="user-component__title">Jerri</h4>
-          <!--<h6 class="user-component__subtitle">this text whatever</h6>-->
+          <h4 class="user-component__title">KakaoTalk</h4>
+          <h6 class="user-component__subtitle">
+            Please check My Kakao Account info
+          </h6> 
         </div>
       </div>
-      <div class="user-component__column"></div>
+      <div class="user-component__column">
+          <span class="user-component__time">21:22</span>
+          <div class="badge">1</div>
       </div>
-      <div class="friends-screen__channel">
-        <div class="friends-screen__channel-header">
-          <span>Channel</span>
-          <i class="fas fa-chevron-up fa-xs"></i>
-        </div>
-        <div class="user-component">
-          <div class="user-component__column">
-            <img src="https://postfiles.pstatic.net/MjAyMDA1MjFfMzEg/MDAxNTg5OTg2ODY1NjM1.5SXPpcBevHoYw1SSYhegkno8SBVKXwYEaRjwHJoNiaUg.ClD83fYRsKM8O8V4ZWROwZBhZ4mbH6hExwzH-e5UAhgg.JPEG.sonss1997/IMG_1147.jpg?type=w580" 
-                 class="user-component__avatar user-component__avatar--sm"/>
-
-            <div class="user-component__text">
-              <h4 class="user-component__title user-component__title--not-bold">Channel</h4>
-              <!--<h6 class="user-component__subtitle">this text whatever</h6>-->
-            </div>
-          </div>
-          <div class="user-component__column">
-            <div>
-            <span>2</span>
-            <i class="fas fa-chevron-right fa-xs"></i>
-            </div>
-          </div>
-        </div>
       </div>
     </main>
 
@@ -80,12 +58,12 @@
     <nav class="nav">
       <ul class="nav__list">
         <li class="nav__btn">
-          <a class="nav__link" href="friends.html"><i class="fas fa-user fa-2x"></i></a>
+          <a class="nav__link" href="friends.html"><i class="far fa-user fa-2x"></i></a>
         </li>
         <li class="nav__btn">
           <a class="nav__link" href="chats.html">
             <span class="nav__notification badge">1</span>
-              <i class="far fa-comment fa-2x"></i></a>
+            <i class="fas fa-comment fa-2x"></i></a>
         </li>
         <li class="nav__btn">
           <a class="nav__link" href="find.html"><i class="fas fa-search fa-2x"></i></a>
